@@ -173,10 +173,10 @@ function startStory(startPoint) {
   main.innerHTML = `
       <div id="story-container">
           <p id="story-text">${storyContent[startPoint].text}</p>
-          <p id="choices-text"><strong>Answer choices:</strong><br> ${choicesHTML}</p>
+          <p id="choices-text"><strong>Story Choices:</strong><br> ${choicesHTML}</p>
       </div>
       <div id="input-container">
-          <label for="user-input">What would you like to do?</label>
+          <label for="user-input">What would you like to choose?</label>
           <input type="text" id="user-input" placeholder="Type your choice here..." />
           <button id="submit-button">Submit</button>
       </div>
