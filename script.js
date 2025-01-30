@@ -273,3 +273,9 @@ window.onclick = function(event) {
   }
 }
 
+new Vue({
+  el: '#app',
+  data: {
+    showModal: false
+  }
+});
