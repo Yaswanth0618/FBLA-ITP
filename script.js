@@ -8,6 +8,7 @@ const storyContent = {
       enter: 2,
       "turn back": 3,
       stop: null,
+      back: null,
     },
   },
   2: {
@@ -16,6 +17,7 @@ const storyContent = {
       left: 4,
       right: 5,
       stop: null,
+      back: null,
     },
   },
   3: {
@@ -23,6 +25,7 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   4: {
@@ -30,8 +33,9 @@ const storyContent = {
     choices: {
       accept: 6,
       stay: 7,
-      explore: 10, 
+      explore: 10,
       stop: null,
+      back: null,
     },
   },
   5: {
@@ -41,6 +45,7 @@ const storyContent = {
       leave: 9,
       investigate: 11,
       stop: null,
+      back: null,
     },
   },
   6: {
@@ -48,13 +53,15 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   7: {
-    text: "You decide to stay by the river, enjoying its calm. Time seems to stand still. Do you want to 'restart' or 'stop'?",
+    text: "You decide to stay by the river, enjoying its calm. Time seems to stand still. The end! Do you want to 'restart' or 'stop'?",
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   8: {
@@ -62,13 +69,15 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   9: {
-    text: "You leave the lantern and continue deeper into the forest, wondering what could have been. Do you want to 'restart' or 'stop'?",
+    text: "You leave the lantern and continue deeper into the forest, wondering what could have been. The end! Do you want to 'restart' or 'stop'?",
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   10: {
@@ -77,6 +86,7 @@ const storyContent = {
       drink: 12,
       wash: 13,
       stop: null,
+      back: null,
     },
   },
   11: {
@@ -85,6 +95,7 @@ const storyContent = {
       open: 14,
       leave: 9,
       stop: null,
+      back: null,
     },
   },
   12: {
@@ -93,6 +104,7 @@ const storyContent = {
       follow: 15,
       ignore: 16,
       stop: null,
+      back: null,
     },
   },
   13: {
@@ -101,6 +113,7 @@ const storyContent = {
       enter: 17,
       stay: 18,
       stop: null,
+      back: null,
     },
   },
   14: {
@@ -109,6 +122,7 @@ const storyContent = {
       follow: 19,
       decline: 9,
       stop: null,
+      back: null,
     },
   },
   15: {
@@ -117,6 +131,7 @@ const storyContent = {
       take: 20,
       leave: 9,
       stop: null,
+      back: null,
     },
   },
   16: {
@@ -125,6 +140,8 @@ const storyContent = {
       run: 21,
       hide: 22,
       stop: null,
+      back: null,
+
     },
   },
   17: {
@@ -133,6 +150,7 @@ const storyContent = {
       open: 23,
       take: 24,
       stop: null,
+      back: null,
     },
   },
   18: {
@@ -141,6 +159,7 @@ const storyContent = {
       read: 25,
       ignore: 9,
       stop: null,
+      back: null,
     },
   },
   19: {
@@ -148,6 +167,7 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   20: {
@@ -155,9 +175,51 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
+    },
+  },
+  21: {
+    text: "You run as fast as you can, but the shadow follows. Suddenly, you trip over a root, and the darkness engulfs you. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  22: {
+    text: "You hide behind a tree, holding your breath. The shadow passes, whispering in an ancient tongue. You remain hidden until dawn, but you will never forget its words. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  23: {
+    text: "You open the chest, revealing piles of gold and jewels. However, a curse is unleashed, and you are forever bound to guard the treasure. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  24: {
+    text: "You take a glowing crystal, feeling its warmth. Suddenly, you are transported to another realm, a land of endless light. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  25: {
+    text: "The map reveals the location of a hidden kingdom. You follow its path and become the first traveler to rediscover a forgotten civilization. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
     },
   },
 };
+
 
 
 // Initialize the story
@@ -212,6 +274,8 @@ function generateChoicesHTML(currentPoint) {
 let userChoices = [];
 let userStoryData = {}; // Stores text descriptions
 
+let historyStack = []; // Stack to track previous story points
+
 function handleUserInput(currentPoint) {
   const userInput = document.getElementById("user-input").value.toLowerCase().trim();
 
@@ -220,6 +284,16 @@ function handleUserInput(currentPoint) {
       localStorage.setItem("userChoices", JSON.stringify(userChoices));
       localStorage.setItem("storyData", JSON.stringify(userStoryData));
       window.location.href = "thankyou.html";
+      return;
+  }
+
+  if (userInput === "back") {
+      if (historyStack.length > 0) {
+          let previousPoint = historyStack.pop(); // Go back to the previous choice
+          startStory(previousPoint);
+      } else {
+          alert("You are already at the beginning.");
+      }
       return;
   }
 
@@ -232,6 +306,9 @@ function handleUserInput(currentPoint) {
 
   userChoices.push(userInput);
   userStoryData[userInput] = storyContent[currentPoint];
+  
+  // Store the current point before moving to the next
+  historyStack.push(currentPoint);
 
   if (nextPoint === null) {
       alert("Thank You for playing this story!");
@@ -246,6 +323,7 @@ function handleUserInput(currentPoint) {
 
   document.getElementById("user-input").value = "";
 }
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
