@@ -1,87 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Character encoding for proper text rendering -->
   <meta charset="UTF-8">
-  
-  <!-- Import Google Fonts for better typography -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
-  
-  <!-- Ensure proper rendering and touch zoom on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Link to Font Awesome for using icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
   <title>Interactive Stories</title>
-  
-  <!-- Link to external CSS file for styling -->
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
-  <header>
-    <!-- Website title and introduction -->
-    <h1>Interactive Stories</h1>
-    <p>Step into a world of stories, where every choice changes the story’s fate.</p>
-  </header>
-  
-  <main>
-    <!-- Section for selecting a story -->
-    <section id="story-selection">
-      <div class="story-option">
-        <h2>The Enchanted Forest</h2>
-        <p></p>
-        <!-- Button to start the story, redirects to 'story.html' -->
-        <button onclick="window.location.href='story.html'">Start Story</button>
-      </div>
-    </section>
-
-    <!-- The Modal (Popup Window for Instructions) -->
-    <div id="myModal" class="modal">
-      <!-- Modal content container -->
-      <div class="modal-content">
-        <!-- Close button for the modal -->
-        <span class="close">&times;</span> 
-        <p>
-          Welcome to Interactive Stories.
-          <br>
-          <strong>How to Use This Page:</strong>
-          <br>
-          1. Click "Start Story" on the story of your choice.
-          <br>
-          2. Read the introduction and select an option to shape the story's direction.
-          <br>
-          3. Continue making choices to progress through the story.
-          <br>
-          4. If you're unsatisfied with the story or reached the end, type "stop" at any time to view an overview of the story you've created so far. 
-          <br>
-          5. Then, you can return to the home page and start a new story.
-        </p>
-      </div>
-      
-      <!-- Navigation buttons for modal (potential story navigation) -->
-      <a href="#" class="previous round">&#8249;</a>
-      <a href="#" class="next round">&#8250;</a>
-    </div>
-  
-    <!-- Help button with a question mark icon -->
-    <button class="btn" id="question"><i class="fa fa-question"></i></button>
-  </main>
-  
-  <footer>
-    <!-- Copyright notice -->
-    <p>&copy; 2025 Interactive Stories. All rights reserved.</p>
-  </footer>
-  
-  <!-- Link to external JavaScript file for interactive functionality -->
   <div id="app">
     <header>
       <h1>Interactive Stories</h1>
       <p>Step into a world of stories, where every choice changes the story’s fate.</p>
     </header>
     
-    <div class="content"> <!-- Added this wrapper -->
+    <div class="content">
       <main>
         <section id="story-selection">
           <div class="story-option">
