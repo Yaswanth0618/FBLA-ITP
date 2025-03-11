@@ -1,18 +1,16 @@
-/* General styles for the entire page */
 body {
-  font-family: Arial, sans-serif; /* Sets the font for the page */
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9; /* Light gray background */
-  color: #333; /* Dark text color for readability */
+  background-color: #f4f4f9;
+  color: #333;
 }
 
-/* Header section styles */
 header {
-  background-color: rgb(0, 128, 0); /* Sets the header background color */
-  color: #fff; /* White text for contrast */
+  background-color: green;
+  color: #fff;
   padding: 1.5rem;
-  text-align: center; /* Centers text inside the header */
+  text-align: center;
 }
 
 header h1 {
@@ -23,33 +21,30 @@ header p {
   font-size: 1.2rem;
 }
 
-/* Main content section */
 main {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers content horizontally */
+  align-items: center;
 }
 
-/* Story selection section */
 #story-selection {
   display: flex;
-  gap: 2rem; /* Adds space between story options */
+  gap: 2rem;
   justify-content: center;
 }
 
 .story-option {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   text-align: center;
   width: 300px;
 }
 
-/* Button styles */
 button {
-  background-color: rgb(0, 128, 0); /* Default button color */
+  background-color: green;
   color: white;
   border: none;
   padding: 0.7rem 1.2rem;
@@ -60,10 +55,9 @@ button {
 }
 
 button:hover {
-  background-color: #3700b3; /* Change color on hover */
+  background-color: #3700b3;
 }
 
-/* Story container styling */
 #story-container {
   background: #fff;
   border-radius: 8px;
@@ -73,7 +67,6 @@ button:hover {
   width: 100%;
 }
 
-/* Ensure the page takes full height */
 html, body {
   height: 100%;
   margin: 0;
@@ -81,12 +74,20 @@ html, body {
   flex-direction: column;
 }
 
-/* Makes main content expand to fill available space */
-main {
-  flex: 1;
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make sure it covers the full viewport height */
 }
 
-/* Footer section styling */
+.content {
+  flex: 1; /* This allows the main content to expand and push the footer down */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically if there isn’t enough */
+  align-items: center;
+}
+
 footer {
   background-color: #333;
   color: #f4f4f4;
@@ -97,75 +98,7 @@ footer {
 }
 
 
-footer a:hover {
-  text-decoration: underline;
-  color: #76ff03;
-}
 
-/* Story text styling */
-#story-text {
-  font-family: cursive;
-  font-weight: bold;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Input container for user interaction */
-#input-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 40px;
-  padding: 15px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 25%;
-  text-align: center;
-}
-
-#input-container label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-/* Styling for text input */
-#user-input {
-  width: 80%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 5px;
-  outline: none;
-  margin-bottom: 10px;
-}
-
-#user-input:focus {
-  border-color: rgb(0, 86, 179);
-}
-
-/* Submit button styles */
-#submit-button {
-  background-color: rgb(0, 128, 0);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s ease;
-}
-
-#submit-button:hover {
-  background-color: rgb(0, 86, 179);
-  transform: scale(1.1);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Floating help button */
 .btn {
   position: fixed;
   bottom: 90px;
@@ -185,21 +118,21 @@ footer a:hover {
 }
 
 .btn:hover {
-  background-color: rgb(22, 158, 72);
+  background-color: #0056b3;
   transform: scale(1.1);
 }
 
 .modal {
-  display: none; /* Hidden by default */
+  display: flex;
   position: fixed;
   z-index: 1;
-  padding-top: 100px;
   left: 0;
-  top: 100;
+  top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4); /* Black with opacity */
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
