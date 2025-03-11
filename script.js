@@ -179,16 +179,21 @@ const storyContent = {
   },
 };
 
-// Initialize the story
+// Initialize the story with a given starting point
 function startStory(startPoint) {
+  // Check if the provided startPoint exists in the storyContent object
   if (!storyContent[startPoint]) {
       console.error(`Error: Story point ${startPoint} is undefined.`);
-      return;
+      return; // Exit the function if the start point is invalid
   }
 
+  // Select the main content area where the story will be displayed
   const main = document.querySelector("main");
+  
+  // Generate the HTML for story choices based on the current story point
   const choicesHTML = generateChoicesHTML(startPoint);
 
+  // Inject the story text and choice options into the main content area
   main.innerHTML = `
       <div id="story-container">
           <p id="story-text">${storyContent[startPoint].text}</p>
@@ -201,16 +206,21 @@ function startStory(startPoint) {
       </div>
   `;
 
+  // Get the input field and submit button for user interaction
   const inputField = document.getElementById("user-input");
   const submitButton = document.getElementById("submit-button");
 
+  // Add event listener to handle user input when the submit button is clicked
   submitButton.addEventListener("click", () => handleUserInput(startPoint));
+
+  // Allow user to submit their choice by pressing "Enter" instead of clicking the button
   inputField.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
           handleUserInput(startPoint);
       }
   });
 }
+
 
 
 // Generate the choices in HTML format
