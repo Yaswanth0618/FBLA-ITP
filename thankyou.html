@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="thankyou.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
+
 <body>
     <div class="thank-you-container">
         <h1>🎉 Thank You for Playing! 🎉</h1>
@@ -16,40 +20,42 @@
         <button onclick="window.location.href='index.html'">🏠 Back to Home</button>
     </div>
 
+    <div id="app">
+
+        <div class="content"> <!-- Added this wrapper -->
+            <main>
+
+                <button class="btn" id="question" @click="showModal = true">
+                    <i class="fa fa-question"></i>
+                </button>
+
+                <div v-if="showModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" @click="showModal = false">&times;</span>
+                        <h2>About Interactive Stories</h2>
+                        <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+                        <p>Click 'Start Story' to begin your adventure.</p>
+                        <button class="modal-close-btn" @click="showModal = false">Close</button>
+                    </div>
+                </div>
+            </main>
+        </div> <!-- End of the new wrapper -->
+
+        <footer>
+            <p>&copy; 2025 Interactive Stories. All rights reserved.</p>
+        </footer>
+    </div>
+
+
+    <script src="thankyou.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let userChoices = JSON.parse(localStorage.getItem("userChoices")) || [];
-            let storyContent = JSON.parse(localStorage.getItem("storyData")) || {};
-            let reportText = "📖 Adventure Summary\n====================\n\n";
-
-            if (userChoices.length === 0) {
-                reportText += "No choices were recorded.";
-            } else {
-                let step = 1;
-                for (let choice of userChoices) {
-                    let storyStep = storyContent[choice];
-                    if (storyStep) {
-                        reportText += `Step ${step}: ${storyStep.text}\n`;
-                        reportText += `👉 You chose: ${choice.toUpperCase()}\n\n`;
-                        step++;
-                    }
-                }
-                reportText += "🎉 The End! 🎉\n";
+        new Vue({
+            el: '#app',
+            data: {
+                showModal: false
             }
-
-            document.getElementById("report").textContent = reportText;
-
-            // Download TXT File
-            document.getElementById("download-report").addEventListener("click", function () {
-                const blob = new Blob([reportText], { type: "text/plain" });
-                const a = document.createElement("a");
-                a.href = URL.createObjectURL(blob);
-                a.download = "Adventure_Report.txt";
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            });
         });
     </script>
 </body>
+
 </html>

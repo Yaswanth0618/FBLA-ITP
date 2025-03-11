@@ -17,6 +17,7 @@
   
   <!-- Link to external CSS file for styling -->
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </head>
 <body>
   <header>
@@ -74,6 +75,50 @@
   </footer>
   
   <!-- Link to external JavaScript file for interactive functionality -->
+  <div id="app">
+    <header>
+      <h1>Interactive Stories</h1>
+      <p>Step into a world of stories, where every choice changes the story’s fate.</p>
+    </header>
+    
+    <div class="content"> <!-- Added this wrapper -->
+      <main>
+        <section id="story-selection">
+          <div class="story-option">
+            <h2>The Enchanted Forest</h2>
+            <button onclick="window.location.href='story.html'">Start Story</button>
+          </div>
+        </section>
+        
+        <button class="btn" id="question" @click="showModal = true">
+          <i class="fa fa-question"></i>
+        </button>
+
+        <div v-if="showModal" class="modal">
+          <div class="modal-content">
+            <span class="close" @click="showModal = false">&times;</span>
+            <h2>About Interactive Stories</h2>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            
+            <p>Click 'Start Story' to begin your adventure.</p>
+            <button class="modal-close-btn" @click="showModal = false">Close</button>
+          </div>
+        </div>
+      </main>    
+    </div> <!-- End of the new wrapper -->
+
+    <footer>
+      <p>&copy; 2025 Interactive Stories. All rights reserved.</p>
+    </footer>
+  </div>
+
   <script src="script.js"></script>
 </body>
+
 </html>

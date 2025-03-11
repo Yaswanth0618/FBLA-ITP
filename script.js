@@ -9,6 +9,10 @@ const storyContent = {
       enter: 2, // If the player chooses 'enter', go to page 2
       "turn back": 3, // If the player chooses 'turn back', go to page 3
       stop: null, // Stops the game
+      enter: 2,
+      "turn back": 3,
+      stop: null,
+      back: null,
     },
   },
   2: {
@@ -18,6 +22,10 @@ const storyContent = {
       left: 4, // Choosing left leads to the river (page 4)
       right: 5, // Choosing right leads to the glowing light (page 5)
       stop: null, // Stops the game
+      left: 4,
+      right: 5,
+      stop: null,
+      back: null,
     },
   },
   3: {
@@ -26,6 +34,9 @@ const storyContent = {
     choices: {
       restart: 1, // Restarting brings the player back to page 1
       stop: null, // Stops the game
+      restart: 1,
+      stop: null,
+      back: null,
     },
   },
   4: {
@@ -36,6 +47,11 @@ const storyContent = {
       stay: 7, // Staying at the river (page 7)
       explore: 10, // Exploring the forest near the river (page 10)
       stop: null, // Stops the game
+      accept: 6,
+      stay: 7,
+      explore: 10,
+      stop: null,
+      back: null,
     },
   },
   5: {
@@ -46,6 +62,11 @@ const storyContent = {
       leave: 9, // Leaving the lantern and moving on (page 9)
       investigate: 11, // Investigating the lantern further (page 11)
       stop: null, // Stops the game
+      take: 8,
+      leave: 9,
+      investigate: 11,
+      stop: null,
+      back: null,
     },
   },
   6: {
@@ -54,14 +75,19 @@ const storyContent = {
     choices: {
       restart: 1, // Restarting the game
       stop: null, // Stops the game
+      restart: 1,
+      stop: null,
+      back: null,
     },
   },
   7: {
     // Choosing to stay by the river
     text: "You decide to stay by the river, enjoying its calm. Time seems to stand still. Do you want to 'restart' or 'stop'?",
+    text: "You decide to stay by the river, enjoying its calm. Time seems to stand still. The end! Do you want to 'restart' or 'stop'?",
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   8: {
@@ -70,14 +96,17 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   9: {
     // Moving deeper into the forest without taking the lantern
     text: "You leave the lantern and continue deeper into the forest, wondering what could have been. Do you want to 'restart' or 'stop'?",
+    text: "You leave the lantern and continue deeper into the forest, wondering what could have been. The end! Do you want to 'restart' or 'stop'?",
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   10: {
@@ -87,6 +116,7 @@ const storyContent = {
       drink: 12, // Drinking the magical water (page 12)
       wash: 13, // Washing hands in the water (page 13)
       stop: null,
+      back: null,
     },
   },
   11: {
@@ -96,6 +126,7 @@ const storyContent = {
       open: 14, // Opening the lantern (page 14)
       leave: 9, // Leaving it closed (page 9)
       stop: null,
+      back: null,
     },
   },
   12: {
@@ -105,6 +136,7 @@ const storyContent = {
       follow: 15, // Following the spirits' guidance (page 15)
       ignore: 16, // Ignoring them (page 16)
       stop: null,
+      back: null,
     },
   },
   13: {
@@ -114,6 +146,7 @@ const storyContent = {
       enter: 17, // Entering the hidden cave (page 17)
       stay: 18, // Staying outside (page 18)
       stop: null,
+      back: null,
     },
   },
   14: {
@@ -123,6 +156,7 @@ const storyContent = {
       follow: 19, // Following the owl (page 19)
       decline: 9, // Declining the owl's offer (page 9)
       stop: null,
+      back: null,
     },
   },
   15: {
@@ -132,6 +166,7 @@ const storyContent = {
       take: 20, // Taking the key (page 20)
       leave: 9, // Leaving the key (page 9)
       stop: null,
+      back: null,
     },
   },
   16: {
@@ -141,6 +176,8 @@ const storyContent = {
       run: 21, // Running (page 21)
       hide: 22, // Hiding (page 22)
       stop: null,
+      back: null,
+
     },
   },
   17: {
@@ -150,6 +187,7 @@ const storyContent = {
       open: 23, // Opening the chest (page 23)
       take: 24, // Taking a crystal (page 24)
       stop: null,
+      back: null,
     },
   },
   18: {
@@ -159,6 +197,7 @@ const storyContent = {
       read: 25, // Reading the map (page 25)
       ignore: 9, // Ignoring it (page 9)
       stop: null,
+      back: null,
     },
   },
   19: {
@@ -167,6 +206,7 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
     },
   },
   20: {
@@ -175,6 +215,47 @@ const storyContent = {
     choices: {
       restart: 1,
       stop: null,
+      back: null,
+    },
+  },
+  21: {
+    text: "You run as fast as you can, but the shadow follows. Suddenly, you trip over a root, and the darkness engulfs you. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  22: {
+    text: "You hide behind a tree, holding your breath. The shadow passes, whispering in an ancient tongue. You remain hidden until dawn, but you will never forget its words. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  23: {
+    text: "You open the chest, revealing piles of gold and jewels. However, a curse is unleashed, and you are forever bound to guard the treasure. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  24: {
+    text: "You take a glowing crystal, feeling its warmth. Suddenly, you are transported to another realm, a land of endless light. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
+    },
+  },
+  25: {
+    text: "The map reveals the location of a hidden kingdom. You follow its path and become the first traveler to rediscover a forgotten civilization. The end! Do you want to 'restart' or 'stop'?",
+    choices: {
+      restart: 1,
+      stop: null,
+      back: null,
     },
   },
 };
@@ -241,6 +322,8 @@ function generateChoicesHTML(currentPoint) {
 let userChoices = [];
 let userStoryData = {}; // Stores text descriptions
 
+let historyStack = []; // Stack to track previous story points
+
 function handleUserInput(currentPoint) {
   const userInput = document.getElementById("user-input").value.toLowerCase().trim();
 
@@ -249,6 +332,16 @@ function handleUserInput(currentPoint) {
       localStorage.setItem("userChoices", JSON.stringify(userChoices));
       localStorage.setItem("storyData", JSON.stringify(userStoryData));
       window.location.href = "thankyou.html";
+      return;
+  }
+
+  if (userInput === "back") {
+      if (historyStack.length > 0) {
+          let previousPoint = historyStack.pop(); // Go back to the previous choice
+          startStory(previousPoint);
+      } else {
+          alert("You are already at the beginning.");
+      }
       return;
   }
 
@@ -261,6 +354,9 @@ function handleUserInput(currentPoint) {
 
   userChoices.push(userInput);
   userStoryData[userInput] = storyContent[currentPoint];
+  
+  // Store the current point before moving to the next
+  historyStack.push(currentPoint);
 
   if (nextPoint === null) {
       alert("Thank You for playing this story!");
@@ -275,6 +371,7 @@ function handleUserInput(currentPoint) {
 
   document.getElementById("user-input").value = "";
 }
+
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -302,3 +399,9 @@ window.onclick = function(event) {
   }
 }
 
+new Vue({
+  el: '#app',
+  data: {
+    showModal: false
+  }
+});
