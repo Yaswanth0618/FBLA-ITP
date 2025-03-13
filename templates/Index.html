@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Interactive Stories</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Interactive Stories</h1>
+      <p>Step into a world of stories, where every choice changes the story’s fate.</p>
+    </header>
+    
+    <div class="content">
+      <main>
+        <section id="story-selection">
+          <div class="story-option">
+            <img src="../images/enchanted_forest.jpg" alt="The Enchanted Forest">
+            <h2>The Enchanted Forest</h2>
+            <p>A mystical forest filled with wonders and secrets. Will you uncover its magic?</p>
+            <button onclick="window.location.href='story.html'">Start Story</button>
+          </div>
+          
+          <div class="story-option">
+            <img src="../images/cursed_hollow.jpg" alt="The Cursed Hollow">
+            <h2>The Cursed Hollow</h2>
+            <p>A dark and eerie place haunted by an ancient curse. Can you break the spell?</p>
+            <button onclick="window.location.href='story2.html'">Start Story</button>
+          </div>
+        
+          <div class="story-option">
+            <img src="../images/time_traveler.jpg" alt="A Time Traveler">
+            <h2>A Time Traveler</h2>
+            <p>Jump through different eras in history. Will you change the future or the past?</p>
+            <button onclick="window.location.href='story3.html'">Start Story</button>
+          </div>
+        </section>
+        
+        
+        <button class="btn" id="question" @click="showModal = true">
+          <i class="fa fa-question"></i>
+        </button>
+
+        <div v-if="showModal" class="modal">
+          <div class="modal-content">
+            <span class="close" @click="showModal = false">&times;</span>
+            <h2>About Interactive Stories</h2>
+            <p>Welcome to Interactive Stories! Here, your choices shape the journey.</p>
+            
+            <p>Click 'Start Story' to begin your adventure.</p>
+            <button class="modal-close-btn" @click="showModal = false">Close</button>
+          </div>
+        </div>
+      </main>    
+    </div> <!-- End of the new wrapper -->
+
+    <footer>
+      <p>&copy; 2025 Interactive Stories. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script src="../js/1script.js"></script>
+</body>
+
+</html>
